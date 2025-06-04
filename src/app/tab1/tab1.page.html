@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <app-explore-container name="Login test"></app-explore-container>
+
+  <img src="{{ user.photoUrl }}" referrerpolicy="no-referrer">
+  <div>
+    <h4>{{ user.name }}</h4>
+    <p>{{ user.email }}</p>
+  </div>
+
+  <asl-google-signin-button type='icon'
+    size='medium'></asl-google-signin-button>
+
+  <ion-button (click)="signOut()">SignOut</ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-label>{{ item }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-button (click)="addItem()">Add Item</ion-button> -->
+</ion-content>
