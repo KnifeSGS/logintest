@@ -5,12 +5,14 @@ import {
   IonTitle,
   IonContent,
   IonButton,
-  IonItem,
-  IonList,
-  IonLabel,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonCardSubtitle,
 } from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import {
+  GoogleLoginProvider,
   GoogleSigninButtonDirective,
   SocialAuthService,
   SocialUser,
@@ -21,15 +23,16 @@ import {
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   imports: [
-    IonLabel,
-    IonList,
-    IonItem,
+    IonCardSubtitle,
+    IonCardContent,
+    IonCardTitle,
+    IonCardHeader,
+    IonCard,
     IonButton,
     IonHeader,
     IonToolbar,
     IonTitle,
     IonContent,
-    ExploreContainerComponent,
     GoogleSigninButtonDirective,
   ],
 })
@@ -53,5 +56,9 @@ export class Tab1Page implements OnInit {
       this.loggedIn = false;
       console.log('User signed out');
     });
+  }
+
+  refreshToken(): void {
+    this.#authService.refreshAuthToken(GoogleLoginProvider.PROVIDER_ID);
   }
 }
